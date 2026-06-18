@@ -22,5 +22,26 @@ namespace CalculadoraAvançada.Classes
         {
             return Math.Tan(angulo * Math.PI / 180);
         }
+
+        public double Soma(double a, double b)
+        {
+            return a + b;
+        }
+
+        public double Subtracao(double a, double b)
+        {
+            return a - b;
+        }
+
+        public double Divisao(double a, double b)
+        {
+            return (a / b);
+        }
+
+        public double Multiplicação(double a, double b)
+        {
+            return (a * b);
+        }
+
     }
 }
