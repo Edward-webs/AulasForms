@@ -1,3 +1,4 @@
+using System.Data;
 namespace CalculadoraAvançada
 {
     public partial class Form1 : Form
@@ -68,72 +69,124 @@ namespace CalculadoraAvançada
 
         private void button23_Click(object sender, EventArgs e)
         {
-            textBox3.Text = "1";
+            textBox3.Text += "1";
         }
 
         private void button12_Click(object sender, EventArgs e)
         {
-            textBox3.Text = "2";
+            textBox3.Text += "2";
         }
 
         private void button13_Click(object sender, EventArgs e)
         {
-            textBox3.Text = "3";
+            textBox3.Text += "3";
         }
 
         private void button14_Click(object sender, EventArgs e)
         {
-            textBox3.Text = "4";
+            textBox3.Text += "4";
         }
 
         private void button15_Click(object sender, EventArgs e)
         {
-            textBox3.Text = "5";
+            textBox3.Text += "5";
         }
 
         private void button16_Click(object sender, EventArgs e)
         {
-            textBox3.Text = "6";
+            textBox3.Text += "6";
         }
 
         private void button17_Click(object sender, EventArgs e)
         {
-            textBox3.Text = "7";
+            textBox3.Text += "7";
         }
 
         private void button18_Click(object sender, EventArgs e)
         {
-            textBox3.Text = "8";
+            textBox3.Text += "8";
         }
 
         private void button19_Click(object sender, EventArgs e)
         {
-            textBox3.Text = "9";
+            textBox3.Text += "9";
         }
 
         private void button20_Click(object sender, EventArgs e)
         {
-            textBox3.Text = "0";
+            textBox3.Text += "0";
         }
 
         private void button24_Click(object sender, EventArgs e)
         {
-            textBox3.Text = "+";
+            textBox3.Text += "+";
         }
 
         private void button26_Click(object sender, EventArgs e)
         {
-            textBox3.Text = "x";
+            textBox3.Text += "*";
         }
 
         private void button25_Click(object sender, EventArgs e)
         {
-            textBox3.Text = "-";
+            textBox3.Text += "-";
         }
 
         private void button27_Click(object sender, EventArgs e)
         {
-            textBox3.Text = "/";
+            textBox3.Text += "/";
+        }
+
+        private void button22_Click(object sender, EventArgs e)
+        {
+            DataTable dt = new DataTable();
+            var resultado = dt.Compute(textBox3.Text, "");
+            textBox3.Text = resultado.ToString();
+        }
+
+        private void button21_Click(object sender, EventArgs e)
+        {
+            textBox3.Text = "";
+        }
+
+        private void button30_Click(object sender, EventArgs e)
+        {
+            textBox3.Text = textBox3.Text.Remove(textBox3.Text.Length - 1);
+        }
+
+        private void button28_Click(object sender, EventArgs e)
+        {
+            int numero = Convert.ToInt32(textBox3.Text);
+            CalculadoraAvançada.Classes.Calculos calcBi = new CalculadoraAvançada.Classes.Calculos();
+            textBox3.Text = calcBi.Binario(numero).ToString();
+        }
+
+        private void button29_Click(object sender, EventArgs e)
+        {
+            int numero = int.Parse(textBox3.Text);
+            CalculadoraAvançada.Classes.Calculos calcFa = new CalculadoraAvançada.Classes.Calculos();
+            long resultado = calcFa.Fatorial(numero);
+            textBox3.Text = resultado.ToString();
+        }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox3_TextChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox3_TextChanged_2(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button12_Click_1(object sender, EventArgs e)
+        {
+            textBox3.Text += "2";
         }
     }
 }

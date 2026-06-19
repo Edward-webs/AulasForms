@@ -23,25 +23,26 @@ namespace CalculadoraAvançada.Classes
             return Math.Tan(angulo * Math.PI / 180);
         }
 
-        public double Soma(double a, double b)
+        public string Binario(int numero)
         {
-            return a + b;
+            return Convert.ToString(numero, 2);
         }
 
-        public double Subtracao(double a, double b)
+        public long Fatorial(int numero)
         {
-            return a - b;
-        }
+            if (numero == 0 || numero == 1)
+            {
+                return 1;
+            }
 
-        public double Divisao(double a, double b)
-        {
-            return (a / b);
-        }
+            long resultado = 1;
 
-        public double Multiplicação(double a, double b)
-        {
-            return (a * b);
-        }
+            for (int i = 2; i <= numero; i++)
+            {
+                resultado *= i;
+            }
+            return resultado;
 
+        }
     }
 }
