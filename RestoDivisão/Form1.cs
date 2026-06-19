@@ -20,6 +20,7 @@ namespace RestoDivisão
                 int divisor = Convert.ToInt32(textBoxDivisor.Text);
                 RestoDivisão.Utilitario.Calculadora calc = new RestoDivisão.Utilitario.Calculadora();
                 int resto = calc.RestoDivisao(dividendo, divisor);
+                textBoxResto.Text = resto.ToString();
             }
             catch (FormatException)
             {

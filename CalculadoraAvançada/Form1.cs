@@ -14,295 +14,126 @@ namespace CalculadoraAvançada
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (textBox1.Text == string.Empty && textBox2.Text == string.Empty)
+            try
             {
-                MessageBox.Show("Não foi possível calcular o seno de um valor!\nAmbas as caixas estão vazias. Favor preenche-las.");
+                double numero = Convert.ToDouble(textBox3.Text);
+                CalculadoraAvançada.Classes.Calculos calcSen = new CalculadoraAvançada.Classes.Calculos();
+                textBox3.Text = calcSen.Seno(numero).ToString();
             }
-            else if (textBox2.Text == string.Empty)
+            catch (FormatException)
             {
-                try
-                {
-                    double numero = Convert.ToDouble(textBox1.Text);
-                    CalculadoraAvançada.Classes.Calculos calcSen = new CalculadoraAvançada.Classes.Calculos();
-                    textBox3.Text = calcSen.Seno(numero).ToString();
-                }
-                catch (FormatException)
-                {
-                    MessageBox.Show("Por favor, insira somente números.", "Erro de Formato!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"Ocorreu um erro inesperado: {ex.Message}", "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                MessageBox.Show("Por favor, insira somente números.", "Erro de Formato!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            else if (textBox1.Text == string.Empty)
+            catch (Exception ex)
             {
-                try
-                {
-                    double numero = Convert.ToDouble(textBox2.Text);
-                    CalculadoraAvançada.Classes.Calculos calcSen = new CalculadoraAvançada.Classes.Calculos();
-                    textBox3.Text = calcSen.Seno(numero).ToString();
-                }
-                catch (FormatException)
-                {
-                    MessageBox.Show("Por favor, insira somente números.", "Erro de Formato!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"Ocorreu um erro inesperado: {ex.Message}", "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-            else if (textBox1.Text != string.Empty && textBox2.Text != string.Empty)
-            {
-                MessageBox.Show("Não foi possível calcular o seno dos dois valores!\nAmbas as caixas estão preenchidas. Favor preencha somente uma caixa de texto.");
+                MessageBox.Show($"Ocorreu um erro inesperado: {ex.Message}", "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if (textBox1.Text == string.Empty && textBox2.Text == string.Empty)
+            try
             {
-                MessageBox.Show("Não foi possível calcular o seno de um valor!\nAmbas as caixas estão vazias. Favor preenche-las.");
+                double numero = Convert.ToDouble(textBox3.Text);
+                CalculadoraAvançada.Classes.Calculos calcCos = new CalculadoraAvançada.Classes.Calculos();
+                textBox3.Text = calcCos.Cosseno(numero).ToString();
             }
-            else if (textBox2.Text == string.Empty)
+            catch (FormatException)
             {
-                try
-                {
-                    double numero = Convert.ToDouble(textBox1.Text);
-                    CalculadoraAvançada.Classes.Calculos calcCos = new CalculadoraAvançada.Classes.Calculos();
-                    textBox3.Text = calcCos.Cosseno(numero).ToString();
-                }
-                catch (FormatException)
-                {
-                    MessageBox.Show("Por favor, insira somente números.", "Erro de Formato!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"Ocorreu um erro inesperado: {ex.Message}", "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                MessageBox.Show("Por favor, insira somente números.", "Erro de Formato!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            else if (textBox1.Text == string.Empty)
+            catch (Exception ex)
             {
-                try
-                {
-                    double numero = Convert.ToDouble(textBox2.Text);
-                    CalculadoraAvançada.Classes.Calculos calcCos = new CalculadoraAvançada.Classes.Calculos();
-                    textBox3.Text = calcCos.Cosseno(numero).ToString();
-                }
-                catch (FormatException)
-                {
-                    MessageBox.Show("Por favor, insira somente números.", "Erro de Formato!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"Ocorreu um erro inesperado: {ex.Message}", "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                MessageBox.Show($"Ocorreu um erro inesperado: {ex.Message}", "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            else if (textBox1.Text != string.Empty && textBox2.Text != string.Empty)
-            {
-                MessageBox.Show("Não foi possível calcular o seno dos dois valores!\nAmbas as caixas estão preenchidas. Favor preencha somente uma caixa de texto.");
-            }
-
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            if (textBox1.Text == string.Empty && textBox2.Text == string.Empty)
+            try
             {
-                MessageBox.Show("Não foi possível calcular o seno de um valor!\nAmbas as caixas estão vazias. Favor preenche-las.");
+                double numero = Convert.ToDouble(textBox3.Text);
+                CalculadoraAvançada.Classes.Calculos calcTan = new CalculadoraAvançada.Classes.Calculos();
+                textBox3.Text = calcTan.Tangente(numero).ToString();
             }
-            else if (textBox2.Text == string.Empty)
+            catch (FormatException)
             {
-                try
-                {
-                    double numero = Convert.ToDouble(textBox1.Text);
-                    CalculadoraAvançada.Classes.Calculos calcTan = new CalculadoraAvançada.Classes.Calculos();
-                    textBox3.Text = calcTan.Tangente(numero).ToString();
-                }
-                catch (FormatException)
-                {
-                    MessageBox.Show("Por favor, insira somente números.", "Erro de Formato!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"Ocorreu um erro inesperado: {ex.Message}", "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                MessageBox.Show("Por favor, insira somente números.", "Erro de Formato!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            else if (textBox1.Text == string.Empty)
+            catch (Exception ex)
             {
-                try
-                {
-                    double numero = Convert.ToDouble(textBox2.Text);
-                    CalculadoraAvançada.Classes.Calculos calcTan = new CalculadoraAvançada.Classes.Calculos();
-                    textBox3.Text = calcTan.Tangente(numero).ToString();
-                }
-                catch (FormatException)
-                {
-                    MessageBox.Show("Por favor, insira somente números.", "Erro de Formato!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"Ocorreu um erro inesperado: {ex.Message}", "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-            else if (textBox1.Text != string.Empty && textBox2.Text != string.Empty)
-            {
-                MessageBox.Show("Não foi possível calcular o seno dos dois valores!\nAmbas as caixas estão preenchidas. Favor preencha somente uma caixa de texto.");
+                MessageBox.Show($"Ocorreu um erro inesperado: {ex.Message}", "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void button23_Click(object sender, EventArgs e)
         {
-            if (textBox1.Text == string.Empty && textBox2.Text == string.Empty)
-            {
-                MessageBox.Show("Não foi possível calcular a soma de dois valores!\nAmbas as caixas estão vazias. Favor preenche-las.");
-            }
-            else if (textBox1.Text == string.Empty)
-            {
-                MessageBox.Show("Não foi possível somar os valores!\nA caixa número 1 está vazia. Favor preenche-lá.");
-                textBox1.Focus();
-            }
-            else if (textBox2.Text == string.Empty)
-            {
-                MessageBox.Show("Não foi possível somar os valores!\nA caixa número 2 está vazia. Favor preenche-lá.");
-                textBox2.Focus();
-            }
-            else
-            {
-                try
-                {
-                    double numero1 = Convert.ToDouble(textBox1.Text);
-                    double numero2 = Convert.ToDouble(textBox2.Text);
-                    CalculadoraAvançada.Classes.Calculos calcsoma = new CalculadoraAvançada.Classes.Calculos();
-
-                    double resultadosoma = calcsoma.Soma(numero1, numero2);
-                    textBox3.Text = resultadosoma.ToString();
-                }
-                catch (FormatException)
-                {
-                    MessageBox.Show("Por favor, insira somente números.", "Erro de Formato!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"Ocorreu um erro inesperado: {ex.Message}", "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-
+            textBox3.Text = "1";
         }
 
-        private void button5_Click(object sender, EventArgs e)
+        private void button12_Click(object sender, EventArgs e)
         {
-            if (textBox1.Text == string.Empty && textBox2.Text == string.Empty)
-            {
-                MessageBox.Show("Não foi possível calcular a subtração de dois valores!\nAmbas as caixas estão vazias. Favor preenche-las.");
-            }
-            else if (textBox1.Text == string.Empty)
-            {
-                MessageBox.Show("Não foi possível subtrair os valores!\nA caixa número 1 está vazia. Favor preenche-lá.");
-                textBox1.Focus();
-            }
-            else if (textBox2.Text == string.Empty)
-            {
-                MessageBox.Show("Não foi possível subtrair os valores!\nA caixa número 2 está vazia. Favor preenche-lá.");
-                textBox2.Focus();
-            }
-            else
-            {
-                try
-                {
-                    double numero1 = Convert.ToDouble(textBox1.Text);
-                    double numero2 = Convert.ToDouble(textBox2.Text);
-                    CalculadoraAvançada.Classes.Calculos calcsubtracao = new CalculadoraAvançada.Classes.Calculos();
-
-                    double resultadosubtracao = calcsubtracao.Subtracao(numero1, numero2);
-                    textBox3.Text = resultadosubtracao.ToString();
-                }
-                catch (FormatException)
-                {
-                    MessageBox.Show("Por favor, insira somente números.", "Erro de Formato!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"Ocorreu um erro inesperado: {ex.Message}", "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-
+            textBox3.Text = "2";
         }
 
-        private void button6_Click(object sender, EventArgs e)
+        private void button13_Click(object sender, EventArgs e)
         {
-            if (textBox1.Text == string.Empty && textBox2.Text == string.Empty)
-            {
-                MessageBox.Show("Não foi possível calcular a divisão de dois valores!\nAmbas as caixas estão vazias. Favor preenche-las.");
-            }
-            else if (textBox1.Text == string.Empty)
-            {
-                MessageBox.Show("Não foi possível dividir os valores!\nA caixa número 1 está vazia. Favor preenche-lá.");
-                textBox1.Focus();
-            }
-            else if (textBox2.Text == string.Empty)
-            {
-                MessageBox.Show("Não foi possível dividir os valores!\nA caixa número 2 está vazia. Favor preenche-lá.");
-                textBox2.Focus();
-            }
-            else
-            {
-                try
-                {
-                    double numero1 = Convert.ToDouble(textBox1.Text);
-                    double numero2 = Convert.ToDouble(textBox2.Text);
-                    CalculadoraAvançada.Classes.Calculos calcdivisao = new CalculadoraAvançada.Classes.Calculos();
-
-                    double resultadodivisao = calcdivisao.Divisao(numero1, numero2);
-                    textBox3.Text = resultadodivisao.ToString();
-                }
-                catch (FormatException)
-                {
-                    MessageBox.Show("Por favor, insira somente números.", "Erro de Formato!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"Ocorreu um erro inesperado: {ex.Message}", "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
+            textBox3.Text = "3";
         }
 
-        private void button7_Click(object sender, EventArgs e)
+        private void button14_Click(object sender, EventArgs e)
         {
-            if (textBox1.Text == string.Empty && textBox2.Text == string.Empty)
-            {
-                MessageBox.Show("Não foi possível calcular a multiplicação de dois valores!\nAmbas as caixas estão vazias. Favor preenche-las.");
-            }
-            else if (textBox1.Text == string.Empty)
-            {
-                MessageBox.Show("Não foi possível multiplicar os valores!\nA caixa número 1 está vazia. Favor preenche-lá.");
-                textBox1.Focus();
-            }
-            else if (textBox2.Text == string.Empty)
-            {
-                MessageBox.Show("Não foi possível multiplicar os valores!\nA caixa número 2 está vazia. Favor preenche-lá.");
-                textBox2.Focus();
-            }
-            else
-            {
-                try
-                {
-                    double numero1 = Convert.ToDouble(textBox1.Text);
-                    double numero2 = Convert.ToDouble(textBox2.Text);
-                    CalculadoraAvançada.Classes.Calculos calcmultiplicacao = new CalculadoraAvançada.Classes.Calculos();
+            textBox3.Text = "4";
+        }
 
-                    double resultadomultiplicação = calcmultiplicacao.Multiplicação(numero1, numero2);
-                    textBox3.Text = resultadomultiplicação.ToString();
-                }
-                catch (FormatException)
-                {
-                    MessageBox.Show("Por favor, insira somente números.", "Erro de Formato!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"Ocorreu um erro inesperado: {ex.Message}", "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
+        private void button15_Click(object sender, EventArgs e)
+        {
+            textBox3.Text = "5";
+        }
+
+        private void button16_Click(object sender, EventArgs e)
+        {
+            textBox3.Text = "6";
+        }
+
+        private void button17_Click(object sender, EventArgs e)
+        {
+            textBox3.Text = "7";
+        }
+
+        private void button18_Click(object sender, EventArgs e)
+        {
+            textBox3.Text = "8";
+        }
+
+        private void button19_Click(object sender, EventArgs e)
+        {
+            textBox3.Text = "9";
+        }
+
+        private void button20_Click(object sender, EventArgs e)
+        {
+            textBox3.Text = "0";
+        }
+
+        private void button24_Click(object sender, EventArgs e)
+        {
+            textBox3.Text = "+";
+        }
+
+        private void button26_Click(object sender, EventArgs e)
+        {
+            textBox3.Text = "x";
+        }
+
+        private void button25_Click(object sender, EventArgs e)
+        {
+            textBox3.Text = "-";
+        }
+
+        private void button27_Click(object sender, EventArgs e)
+        {
+            textBox3.Text = "/";
         }
     }
 }
