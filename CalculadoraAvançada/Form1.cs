@@ -131,11 +131,16 @@ namespace CalculadoraAvançada
             {
                 DataTable dt = new DataTable();
                 var resultado = dt.Compute(textBox3.Text, "");
-                textBox3.Text = resultado.ToString();
-            }
-            catch (DivideByZeroException)
-            {
-                MessageBox.Show("É impossível realizar uma divisão por 0.", "Divisão por 0!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                string resultadoTxt = resultado.ToString();
+                if (resultadoTxt.Contains("∞"))
+                {
+                    MessageBox.Show($"É impossível realizar uma divisão por zero.", "Erro de Divisão por Zero!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    textBox3.Clear();
+                }
+                else
+                {
+                    textBox3.Text = resultadoTxt;
+                }
             }
             catch (Exception ex)
             {
