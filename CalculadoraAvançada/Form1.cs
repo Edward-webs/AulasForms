@@ -21,10 +21,6 @@ namespace CalculadoraAvançada
                 CalculadoraAvançada.Classes.Calculos calcSen = new CalculadoraAvançada.Classes.Calculos();
                 textBox3.Text = calcSen.Seno(numero).ToString();
             }
-            catch (FormatException)
-            {
-                MessageBox.Show("Por favor, insira somente números.", "Erro de Formato!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
             catch (Exception ex)
             {
                 MessageBox.Show($"Ocorreu um erro inesperado: {ex.Message}", "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -39,10 +35,6 @@ namespace CalculadoraAvançada
                 CalculadoraAvançada.Classes.Calculos calcCos = new CalculadoraAvançada.Classes.Calculos();
                 textBox3.Text = calcCos.Cosseno(numero).ToString();
             }
-            catch (FormatException)
-            {
-                MessageBox.Show("Por favor, insira somente números.", "Erro de Formato!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
             catch (Exception ex)
             {
                 MessageBox.Show($"Ocorreu um erro inesperado: {ex.Message}", "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -56,10 +48,6 @@ namespace CalculadoraAvançada
                 double numero = Convert.ToDouble(textBox3.Text);
                 CalculadoraAvançada.Classes.Calculos calcTan = new CalculadoraAvançada.Classes.Calculos();
                 textBox3.Text = calcTan.Tangente(numero).ToString();
-            }
-            catch (FormatException)
-            {
-                MessageBox.Show("Por favor, insira somente números.", "Erro de Formato!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             catch (Exception ex)
             {
@@ -139,9 +127,20 @@ namespace CalculadoraAvançada
 
         private void button22_Click(object sender, EventArgs e)
         {
-            DataTable dt = new DataTable();
-            var resultado = dt.Compute(textBox3.Text, "");
-            textBox3.Text = resultado.ToString();
+            try
+            {
+                DataTable dt = new DataTable();
+                var resultado = dt.Compute(textBox3.Text, "");
+                textBox3.Text = resultado.ToString();
+            }
+            catch (DivideByZeroException)
+            {
+                MessageBox.Show("É impossível realizar uma divisão por 0.", "Divisão por 0!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ocorreu um erro inesperado: {ex.Message}", "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void button21_Click(object sender, EventArgs e)
@@ -156,37 +155,31 @@ namespace CalculadoraAvançada
 
         private void button28_Click(object sender, EventArgs e)
         {
-            int numero = Convert.ToInt32(textBox3.Text);
-            CalculadoraAvançada.Classes.Calculos calcBi = new CalculadoraAvançada.Classes.Calculos();
-            textBox3.Text = calcBi.Binario(numero).ToString();
+            try
+            {
+                int numero = Convert.ToInt32(textBox3.Text);
+                CalculadoraAvançada.Classes.Calculos calcBi = new CalculadoraAvançada.Classes.Calculos();
+                textBox3.Text = calcBi.Binario(numero).ToString();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ocorreu um erro inesperado: {ex.Message}", "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void button29_Click(object sender, EventArgs e)
         {
-            int numero = int.Parse(textBox3.Text);
-            CalculadoraAvançada.Classes.Calculos calcFa = new CalculadoraAvançada.Classes.Calculos();
-            long resultado = calcFa.Fatorial(numero);
-            textBox3.Text = resultado.ToString();
-        }
-
-        private void textBox3_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox3_TextChanged_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox3_TextChanged_2(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button12_Click_1(object sender, EventArgs e)
-        {
-            textBox3.Text += "2";
+            try
+            {
+                int numero = int.Parse(textBox3.Text);
+                CalculadoraAvançada.Classes.Calculos calcFa = new CalculadoraAvançada.Classes.Calculos();
+                long resultado = calcFa.Fatorial(numero);
+                textBox3.Text = resultado.ToString();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ocorreu um erro inesperado: {ex.Message}", "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

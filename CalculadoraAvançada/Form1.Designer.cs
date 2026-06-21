@@ -64,6 +64,7 @@
             button30.TabIndex = 70;
             button30.Text = "Apagar";
             button30.UseVisualStyleBackColor = false;
+            button30.Click += button30_Click;
             // 
             // button29
             // 
@@ -74,6 +75,7 @@
             button29.TabIndex = 69;
             button29.Text = "Fatorial";
             button29.UseVisualStyleBackColor = false;
+            button29.Click += button29_Click;
             // 
             // button28
             // 
@@ -84,6 +86,7 @@
             button28.TabIndex = 68;
             button28.Text = "Binário";
             button28.UseVisualStyleBackColor = false;
+            button28.Click += button28_Click;
             // 
             // button27
             // 
@@ -94,6 +97,7 @@
             button27.TabIndex = 67;
             button27.Text = "/";
             button27.UseVisualStyleBackColor = false;
+            button27.Click += button27_Click;
             // 
             // button26
             // 
@@ -104,6 +108,7 @@
             button26.TabIndex = 66;
             button26.Text = "*";
             button26.UseVisualStyleBackColor = false;
+            button26.Click += button26_Click;
             // 
             // button25
             // 
@@ -114,6 +119,7 @@
             button25.TabIndex = 65;
             button25.Text = "-";
             button25.UseVisualStyleBackColor = false;
+            button25.Click += button25_Click;
             // 
             // button24
             // 
@@ -124,6 +130,7 @@
             button24.TabIndex = 64;
             button24.Text = "+";
             button24.UseVisualStyleBackColor = false;
+            button24.Click += button24_Click;
             // 
             // button23
             // 
@@ -145,6 +152,7 @@
             button22.TabIndex = 62;
             button22.Text = "=";
             button22.UseVisualStyleBackColor = false;
+            button22.Click += button22_Click;
             // 
             // button21
             // 
@@ -155,6 +163,7 @@
             button21.TabIndex = 61;
             button21.Text = "Limpar";
             button21.UseVisualStyleBackColor = false;
+            button21.Click += button21_Click;
             // 
             // button20
             // 
@@ -253,7 +262,7 @@
             button12.TabIndex = 52;
             button12.Text = "2";
             button12.UseVisualStyleBackColor = false;
-            button12.Click += button12_Click_1;
+            button12.Click += button12_Click;
             // 
             // button1
             // 
@@ -264,6 +273,7 @@
             button1.TabIndex = 49;
             button1.Text = "Seno";
             button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
             // 
             // button3
             // 
@@ -274,6 +284,7 @@
             button3.TabIndex = 48;
             button3.Text = "Tangente";
             button3.UseVisualStyleBackColor = false;
+            button3.Click += button3_Click;
             // 
             // button2
             // 
@@ -284,6 +295,7 @@
             button2.TabIndex = 47;
             button2.Text = "Cosseno";
             button2.UseVisualStyleBackColor = false;
+            button2.Click += button2_Click;
             // 
             // label2
             // 
@@ -303,12 +315,12 @@
             // 
             // textBox3
             // 
+            textBox3.Enabled = false;
             textBox3.Location = new Point(17, 12);
             textBox3.Multiline = true;
             textBox3.Name = "textBox3";
             textBox3.Size = new Size(280, 56);
             textBox3.TabIndex = 0;
-            textBox3.TextChanged += textBox3_TextChanged_2;
             // 
             // Form1
             // 
