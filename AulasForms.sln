@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestoDivisão", "RestoDivis
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalculadoraAvançada", "CalculadoraAvançada\CalculadoraAvançada.csproj", "{B8A9ED96-B292-48DF-81E1-B2D2BFB56D39}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ValidadorDeSenhas", "ValidadorDeSenhas\ValidadorDeSenhas.csproj", "{11C1BB7A-F1BA-4DCE-8492-667EFE4949BD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{B8A9ED96-B292-48DF-81E1-B2D2BFB56D39}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B8A9ED96-B292-48DF-81E1-B2D2BFB56D39}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B8A9ED96-B292-48DF-81E1-B2D2BFB56D39}.Release|Any CPU.Build.0 = Release|Any CPU
+		{11C1BB7A-F1BA-4DCE-8492-667EFE4949BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{11C1BB7A-F1BA-4DCE-8492-667EFE4949BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{11C1BB7A-F1BA-4DCE-8492-667EFE4949BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{11C1BB7A-F1BA-4DCE-8492-667EFE4949BD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
