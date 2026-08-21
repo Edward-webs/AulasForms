@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 18
-VisualStudioVersion = 18.7.11903.348
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36915.13 d17.14
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExemplosAula", "ExemplosAula\ExemplosAula.csproj", "{41187808-EB44-48AA-BE99-CE9AF4EBC200}"
 EndProject
@@ -10,6 +10,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalculadoraAvançada", "CalculadoraAvançada\CalculadoraAvançada.csproj", "{B8A9ED96-B292-48DF-81E1-B2D2BFB56D39}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ValidadorDeSenhas", "ValidadorDeSenhas\ValidadorDeSenhas.csproj", "{11C1BB7A-F1BA-4DCE-8492-667EFE4949BD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Frm_Mascara", "Frm_Mascara\Frm_Mascara.csproj", "{1D023D81-B47B-45B1-A45A-1C7CE40D1F84}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Frm_ValidaCPF", "Frm_ValidaCPF\Frm_ValidaCPF.csproj", "{69506764-FB18-4C99-B306-D0EA0ABE49CE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +37,14 @@ Global
 		{11C1BB7A-F1BA-4DCE-8492-667EFE4949BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{11C1BB7A-F1BA-4DCE-8492-667EFE4949BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{11C1BB7A-F1BA-4DCE-8492-667EFE4949BD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1D023D81-B47B-45B1-A45A-1C7CE40D1F84}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D023D81-B47B-45B1-A45A-1C7CE40D1F84}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D023D81-B47B-45B1-A45A-1C7CE40D1F84}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D023D81-B47B-45B1-A45A-1C7CE40D1F84}.Release|Any CPU.Build.0 = Release|Any CPU
+		{69506764-FB18-4C99-B306-D0EA0ABE49CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{69506764-FB18-4C99-B306-D0EA0ABE49CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{69506764-FB18-4C99-B306-D0EA0ABE49CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{69506764-FB18-4C99-B306-D0EA0ABE49CE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
