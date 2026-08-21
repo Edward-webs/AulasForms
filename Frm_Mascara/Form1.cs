@@ -1,3 +1,5 @@
+using System.Globalization;
+
 namespace Frm_Mascara
 {
     public partial class Form1 : Form
@@ -25,7 +27,38 @@ namespace Frm_Mascara
 
         private void Btn_VerConteudo_Click(object sender, EventArgs e)
         {
+            if (Msk_TextBox.Mask == "00:00")
+            {
+                if (!DateTime.TryParseExact(
+                    Msk_TextBox.Text,
+                    "HH:mm",
+                    CultureInfo.InvariantCulture,
+                    DateTimeStyles.None,
+                    out DateTime hora))
+                {
+                    MessageBox.Show("Digite uma hora válida!");
+                    Msk_TextBox.Focus();
+                    return;
+                }
+            }
+
+            if (Msk_TextBox.Mask == "00/00/0000")
+            {
+                if (!DateTime.TryParseExact(
+                    Msk_TextBox.Text,
+                    "dd/MM/yyyy",
+                    CultureInfo.InvariantCulture,
+                    DateTimeStyles.None,
+                    out DateTime data))
+                {
+                    MessageBox.Show("Digite uma data válida!");
+                    Msk_TextBox.Focus();
+                    return;
+                }
+            }
+
             Lbl_Conteudo.Text = Msk_TextBox.Text;
+
             if (VerConteudotxt == false)
             {
                 Msk_TextBox.PasswordChar = '\0';
