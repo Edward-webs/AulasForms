@@ -2,25 +2,63 @@ using System.Globalization;
 
 namespace Frm_Mascara
 {
+
     public partial class Form1 : Form
     {
+
+        private bool SenhaValida(string senha)
+        {
+            if (senha.Length < 8)
+                return false;
+
+            bool temMaiuscula = false;
+            bool temMinuscula = false;
+            bool temNumero = false;
+            bool temEspecial = false;
+
+            foreach (char c in senha)
+            {
+                if (char.IsUpper(c))
+                    temMaiuscula = true;
+
+                else if (char.IsLower(c))
+                    temMinuscula = true;
+
+                else if (char.IsDigit(c))
+                    temNumero = true;
+
+                else
+                    temEspecial = true;
+            }
+
+            return temMaiuscula &&
+                   temMinuscula &&
+                   temNumero &&
+                   temEspecial;
+        }
 
         private string FormatarTelefone(string numeros)
         {
             if (numeros.Length == 0)
-                return "(00) 00000-0000";
+                return "";
 
             if (numeros.Length <= 2)
-                return "(00) " + numeros;
+                return "(" + numeros;
 
-            if (numeros.Length <= 7)
-                return "(00) " + numeros.Substring(0, numeros.Length - 1)
-                    + "-" + numeros.Substring(numeros.Length - 1);
+            string ddd = numeros.Substring(0, 2);
+            string telefone = numeros.Substring(2);
 
-            return "(00) " +
-                   numeros.Substring(0, Math.Min(5, numeros.Length)) +
-                   "-" +
-                   numeros.Substring(Math.Min(5, numeros.Length));
+            if (telefone.Length <= 4)
+                return "(" + ddd + ") " + telefone;
+
+            if (telefone.Length <= 8)
+                return "(" + ddd + ") " +
+                       telefone.Substring(0, 4) + "-" +
+                       telefone.Substring(4);
+
+            return "(" + ddd + ") " +
+                   telefone.Substring(0, 5) + "-" +
+                   telefone.Substring(5);
         }
 
         bool VerConteudotxt = false;
@@ -80,6 +118,23 @@ namespace Frm_Mascara
                 }
             }
 
+            if (Msk_TextBox.UseSystemPasswordChar)
+            {
+                if (!SenhaValida(Msk_TextBox.Text))
+                {
+                    MessageBox.Show(
+                        "A senha deve ter pelo menos 8 caracteres e conter:\n" +
+                        "- Uma letra maiúscula\n" +
+                        "- Uma letra minúscula\n" +
+                        "- Um número\n" +
+                        "- Um caractere especial"
+                    );
+
+                    Msk_TextBox.Focus();
+                    return;
+                }
+            }
+
             Lbl_Conteudo.Text = Msk_TextBox.Text;
 
             if (VerConteudotxt == false)
@@ -128,10 +183,12 @@ namespace Frm_Mascara
         private void Btn_Telefone_Click(object sender, EventArgs e)
         {
             Msk_TextBox.UseSystemPasswordChar = false;
+            Msk_TextBox.PasswordChar = '*';
+            Msk_TextBox.MaxLength = 11;
             Lbl_Conteudo.Text = "";
             Msk_TextBox.Mask = "";
-            Msk_TextBox.Text = "(00) 0000-0000";
-            Lbl_MascaraAtiva.Text = "(00) 0000-0000";
+            Msk_TextBox.Text = "";
+            Lbl_MascaraAtiva.Text = "(00) 00000-0000";
             digitosTelefone = "";
             Msk_TextBox.Focus();
         }
@@ -148,7 +205,17 @@ namespace Frm_Mascara
 
         private void Btn_Senha_Click(object sender, EventArgs e)
         {
+            Msk_TextBox.Mask = "";
+            Msk_TextBox.Text = "";
+            Msk_TextBox.UseSystemPasswordChar = true;
+            Msk_TextBox.PasswordChar = '*';
 
+            Lbl_Conteudo.Text = "";
+            Lbl_MascaraAtiva.Text = "Senha";
+
+            VerConteudotxt = false;
+
+            Msk_TextBox.Focus();
         }
 
         private void Msk_TextBox_KeyPress(object sender, KeyPressEventArgs e)
@@ -193,19 +260,19 @@ namespace Frm_Mascara
                     }
                 }
 
-                else if (Msk_TextBox.Text.StartsWith("(00)"))
+                else
                 {
                     if (char.IsDigit(e.KeyChar))
                     {
                         e.Handled = true;
 
-                        digitosTelefone += e.KeyChar;
+                        if (digitosTelefone.Length < 11)
+                        {
+                            digitosTelefone += e.KeyChar;
 
-                        if (digitosTelefone.Length > 11)
-                            digitosTelefone = digitosTelefone.Substring(1);
-
-                        Msk_TextBox.Text = FormatarTelefone(digitosTelefone);
-                        Msk_TextBox.SelectionStart = Msk_TextBox.Text.Length;
+                            Msk_TextBox.Text = FormatarTelefone(digitosTelefone);
+                            Msk_TextBox.SelectionStart = Msk_TextBox.Text.Length;
+                        }
                     }
 
                     if (e.KeyChar == (char)Keys.Back)
@@ -213,16 +280,23 @@ namespace Frm_Mascara
                         e.Handled = true;
 
                         if (digitosTelefone.Length > 0)
+                        {
                             digitosTelefone = digitosTelefone.Substring(
                                 0,
                                 digitosTelefone.Length - 1
                             );
 
-                        Msk_TextBox.Text = FormatarTelefone(digitosTelefone);
-                        Msk_TextBox.SelectionStart = Msk_TextBox.Text.Length;
+                            Msk_TextBox.Text = FormatarTelefone(digitosTelefone);
+                            Msk_TextBox.SelectionStart = Msk_TextBox.Text.Length;
+                        }
                     }
                 }
             }
         }
     }
 }
+
+/*Duplas de Alunos que fizeram a atividade:
+- Eduardo Lyra Silva
+- Bruna Silva Fonseca
+*/

@@ -36,3 +36,8 @@ namespace Frm_ValidaCPF
         }
     }
 }
+
+/*Duplas de Alunos que fizeram a atividade:
+- Eduardo Lyra Silva
+- Bruna Silva Fonseca
+*/
