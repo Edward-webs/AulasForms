@@ -4,7 +4,30 @@ namespace Frm_Mascara
 {
     public partial class Form1 : Form
     {
+
+        private string FormatarTelefone(string numeros)
+        {
+            if (numeros.Length == 0)
+                return "(00) 00000-0000";
+
+            if (numeros.Length <= 2)
+                return "(00) " + numeros;
+
+            if (numeros.Length <= 7)
+                return "(00) " + numeros.Substring(0, numeros.Length - 1)
+                    + "-" + numeros.Substring(numeros.Length - 1);
+
+            return "(00) " +
+                   numeros.Substring(0, Math.Min(5, numeros.Length)) +
+                   "-" +
+                   numeros.Substring(Math.Min(5, numeros.Length));
+        }
+
         bool VerConteudotxt = false;
+
+        string digitosMoeda = "";
+        string digitosTelefone = "";
+
         public Form1()
         {
             InitializeComponent();
@@ -85,9 +108,10 @@ namespace Frm_Mascara
         {
             Msk_TextBox.UseSystemPasswordChar = false;
             Lbl_Conteudo.Text = "";
-            Msk_TextBox.Mask = "$ 000,000,000.00";
-            Lbl_MascaraAtiva.Text = Msk_TextBox.Mask;
-            Msk_TextBox.Text = "";
+            Msk_TextBox.Mask = "";
+            Msk_TextBox.Text = "R$ 0,00";
+            Lbl_MascaraAtiva.Text = "R$ 0,00";
+            digitosMoeda = "";
             Msk_TextBox.Focus();
         }
 
@@ -105,9 +129,10 @@ namespace Frm_Mascara
         {
             Msk_TextBox.UseSystemPasswordChar = false;
             Lbl_Conteudo.Text = "";
-            Msk_TextBox.Mask = "(00) 0000-0000";
-            Lbl_MascaraAtiva.Text = Msk_TextBox.Mask;
-            Msk_TextBox.Text = "";
+            Msk_TextBox.Mask = "";
+            Msk_TextBox.Text = "(00) 0000-0000";
+            Lbl_MascaraAtiva.Text = "(00) 0000-0000";
+            digitosTelefone = "";
             Msk_TextBox.Focus();
         }
 
@@ -124,6 +149,80 @@ namespace Frm_Mascara
         private void Btn_Senha_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void Msk_TextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Msk_TextBox.Mask == "")
+            {
+                if (Msk_TextBox.Text.StartsWith("R$"))
+                {
+                    if (char.IsDigit(e.KeyChar))
+                    {
+                        e.Handled = true;
+
+                        digitosMoeda += e.KeyChar;
+
+                        if (digitosMoeda.Length > 11)
+                            digitosMoeda = digitosMoeda.Substring(1);
+
+                        decimal valor = decimal.Parse(digitosMoeda) / 100;
+
+                        Msk_TextBox.Text = valor.ToString("C2");
+                        Msk_TextBox.SelectionStart = Msk_TextBox.Text.Length;
+                    }
+
+                    if (e.KeyChar == (char)Keys.Back)
+                    {
+                        e.Handled = true;
+
+                        if (digitosMoeda.Length > 0)
+                            digitosMoeda = digitosMoeda.Substring(0, digitosMoeda.Length - 1);
+
+                        if (digitosMoeda.Length == 0)
+                        {
+                            Msk_TextBox.Text = "R$ 0,00";
+                        }
+                        else
+                        {
+                            decimal valor = decimal.Parse(digitosMoeda) / 100;
+                            Msk_TextBox.Text = valor.ToString("C2");
+                        }
+
+                        Msk_TextBox.SelectionStart = Msk_TextBox.Text.Length;
+                    }
+                }
+
+                else if (Msk_TextBox.Text.StartsWith("(00)"))
+                {
+                    if (char.IsDigit(e.KeyChar))
+                    {
+                        e.Handled = true;
+
+                        digitosTelefone += e.KeyChar;
+
+                        if (digitosTelefone.Length > 11)
+                            digitosTelefone = digitosTelefone.Substring(1);
+
+                        Msk_TextBox.Text = FormatarTelefone(digitosTelefone);
+                        Msk_TextBox.SelectionStart = Msk_TextBox.Text.Length;
+                    }
+
+                    if (e.KeyChar == (char)Keys.Back)
+                    {
+                        e.Handled = true;
+
+                        if (digitosTelefone.Length > 0)
+                            digitosTelefone = digitosTelefone.Substring(
+                                0,
+                                digitosTelefone.Length - 1
+                            );
+
+                        Msk_TextBox.Text = FormatarTelefone(digitosTelefone);
+                        Msk_TextBox.SelectionStart = Msk_TextBox.Text.Length;
+                    }
+                }
+            }
         }
     }
 }

@@ -49,6 +49,7 @@
             Msk_TextBox.Size = new Size(258, 26);
             Msk_TextBox.TabIndex = 0;
             Msk_TextBox.MaskInputRejected += Msk_TextBox_MaskInputRejected;
+            Msk_TextBox.KeyPress += Msk_TextBox_KeyPress;
             // 
             // Lbl_Conteudo
             // 
