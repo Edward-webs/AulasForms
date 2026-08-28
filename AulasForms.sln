@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.14.36915.13 d17.14
+VisualStudioVersion = 17.14.36915.13
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExemplosAula", "ExemplosAula\ExemplosAula.csproj", "{41187808-EB44-48AA-BE99-CE9AF4EBC200}"
 EndProject
@@ -14,6 +14,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Frm_Mascara", "Frm_Mascara\Frm_Mascara.csproj", "{1D023D81-B47B-45B1-A45A-1C7CE40D1F84}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Frm_ValidaCPF", "Frm_ValidaCPF\Frm_ValidaCPF.csproj", "{69506764-FB18-4C99-B306-D0EA0ABE49CE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PictureView", "PictureView\PictureView.csproj", "{92FC9284-0A97-4061-8D13-2178845B3862}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{69506764-FB18-4C99-B306-D0EA0ABE49CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{69506764-FB18-4C99-B306-D0EA0ABE49CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{69506764-FB18-4C99-B306-D0EA0ABE49CE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{92FC9284-0A97-4061-8D13-2178845B3862}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{92FC9284-0A97-4061-8D13-2178845B3862}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{92FC9284-0A97-4061-8D13-2178845B3862}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{92FC9284-0A97-4061-8D13-2178845B3862}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
